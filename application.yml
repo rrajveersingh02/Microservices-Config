@@ -4,7 +4,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/microservices
     username: root
-    password: 1234
+    password: "1234" # Wrapped in quotes to ensure it is read as a string
   jpa:
     show-sql: true
     hibernate:
@@ -15,6 +15,13 @@ spring:
   jackson:
     deserialization:
       fail-on-null-for-primitives: false
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
 eureka:
   instance:
     prefer-ip-address: true
